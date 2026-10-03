@@ -1,0 +1,152 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gulf — панель</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#071f45;--blue:#0a3d7c;--or:#ff7a00;--bg:#eef2f8;--line:#dde5f0;--ink:#13233b;--mut:#5f6f86;--e:cubic-bezier(.22,1,.36,1)}
+*{box-sizing:border-box}body{margin:0;font:15px/1.5 Manrope,"Segoe UI",system-ui,sans-serif;background:var(--bg);color:var(--ink)}
+header{position:sticky;top:0;z-index:5;background:rgba(7,31,69,.92);backdrop-filter:blur(12px);color:#fff;display:flex;align-items:center;gap:4px;padding:0 24px;height:60px;flex-wrap:wrap}
+header b{font-size:22px;font-weight:800;margin-right:22px;letter-spacing:-.02em}header b i{color:var(--or);font-style:normal}
+header button{position:relative;background:none;border:0;color:#a9c0e0;padding:21px 14px;cursor:pointer;font:600 14px Manrope,sans-serif;transition:color .25s}
+header button::after{content:"";position:absolute;left:14px;right:14px;bottom:0;height:3px;border-radius:3px 3px 0 0;background:var(--or);transform:scaleX(0);transition:transform .4s var(--e)}
+header button:hover{color:#fff}header button.on{color:#fff}header button.on::after{transform:scaleX(1)}header .sp{flex:1}header span:not(.sp){font-size:13px;color:#a9c0e0}
+main{max-width:900px;margin:28px auto;padding:0 18px}
+.view>.card{animation:in .6s var(--e) both}.view>.card:nth-child(2){animation-delay:.08s}.view>.card:nth-child(3){animation-delay:.16s}
+@keyframes in{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.card{background:#fff;border-radius:20px;padding:22px;margin-bottom:20px;box-shadow:0 1px 2px rgba(10,61,124,.06),0 12px 32px -12px rgba(10,61,124,.16);transition:box-shadow .4s var(--e)}
+h2{margin:0 0 16px;font-size:18px;font-weight:800;letter-spacing:-.01em}label{display:block;font-size:12px;font-weight:600;color:var(--mut);margin:12px 0 5px}
+input,select{width:100%;padding:11px 13px;border:1.5px solid var(--line);border-radius:12px;font:inherit;background:#fbfcfe;transition:border-color .25s,box-shadow .25s,background .25s}
+input:focus,select:focus{outline:0;border-color:var(--or);background:#fff;box-shadow:0 0 0 4px rgba(255,122,0,.15)}
+.row{display:flex;gap:12px}.row>*{flex:1}
+.btn{position:relative;overflow:hidden;background:linear-gradient(135deg,#ff8a1f,#ff6a00);color:#fff;border:0;border-radius:12px;padding:12px 20px;font:700 14px Manrope,sans-serif;cursor:pointer;margin-top:16px;box-shadow:0 8px 20px -8px rgba(255,106,0,.7);transition:transform .25s var(--e),box-shadow .25s}
+.btn::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s var(--e)}.btn:hover::after{transform:translateX(120%)}.btn:hover{transform:translateY(-2px);box-shadow:0 12px 24px -8px rgba(255,106,0,.8)}.btn:active{transform:scale(.96)}
+.btn.s{background:linear-gradient(135deg,#14589f,#0a3d7c);box-shadow:0 8px 20px -8px rgba(10,61,124,.7)}.btn.g{background:#e9eff8;color:var(--blue);box-shadow:none}
+table{width:100%;border-collapse:collapse}td,th{padding:11px 8px;border-bottom:1px solid var(--line);text-align:left}th{color:var(--mut);font-weight:600;font-size:12px}
+tbody tr,table tr{transition:background .2s}table tr:hover td{background:#f6f9fd}tr{animation:in .5s var(--e) both}tr:nth-child(2){animation-delay:.04s}tr:nth-child(3){animation-delay:.08s}tr:nth-child(4){animation-delay:.12s}tr:nth-child(5){animation-delay:.16s}td input{padding:7px 9px;width:84px}
+.err{color:#d93025;margin-top:12px;font-weight:600;animation:in .4s var(--e)}.ok{color:#188a5a;margin-top:12px;font-weight:600;animation:in .4s var(--e)}
+.auth{min-height:100vh;display:grid;grid-template-columns:1.1fr 1fr}.auth.one{grid-template-columns:1fr;place-items:center;padding:20px}
+.hero{position:relative;overflow:hidden;background:linear-gradient(160deg,#071f45,#0a3d7c 70%,#14589f);color:#fff;display:flex;flex-direction:column;justify-content:center;padding:60px}
+.logo{display:block}.logo.big{width:150px;margin-bottom:26px;position:relative;filter:drop-shadow(0 18px 30px rgba(0,0,0,.35));animation:pop 1s var(--e) both,bob 5s 1s ease-in-out infinite}.logo.sm{width:38px;display:inline-block;vertical-align:middle;margin-right:10px;transition:transform .5s var(--e)}header b:hover .logo.sm{transform:rotate(-8deg) scale(1.12)}@keyframes pop{from{opacity:0;transform:scale(.4) rotate(-12deg)}to{opacity:1;transform:none}}@keyframes bob{50%{transform:translateY(-8px)}}.hero h1{animation:in .9s .25s var(--e) both;font-size:64px;font-weight:800;letter-spacing:-.04em;margin:0;line-height:1;position:relative}.hero h1 i{color:var(--or);font-style:normal}
+.hero p{animation:in .9s .4s var(--e) both;font-size:18px;color:#b8cdea;max-width:340px;position:relative;margin-top:16px}
+.blob{position:absolute;border-radius:50%;filter:blur(2px);animation:fl 9s ease-in-out infinite}
+.b1{width:340px;height:340px;right:-80px;top:-80px;background:rgba(255,122,0,.22)}.b2{width:220px;height:220px;left:-60px;bottom:40px;background:rgba(255,255,255,.07);animation-delay:-4s}
+@keyframes fl{50%{transform:translate(-26px,30px) scale(1.08)}}
+.form{display:flex;flex-direction:column;justify-content:center;padding:60px;max-width:460px;width:100%;margin:auto;animation:in .8s .15s var(--e) both}
+.form h2{font-size:26px}.box{background:#fff;border-radius:22px;padding:34px;box-shadow:0 24px 60px -20px rgba(10,61,124,.3);max-width:440px;animation:in .7s var(--e) both}
+#qr{max-width:320px;margin-top:14px;border-radius:14px;overflow:hidden}
+.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,40px);opacity:0;background:var(--navy);color:#fff;padding:13px 22px;border-radius:14px;font-weight:600;transition:all .5s var(--e);z-index:9;box-shadow:0 14px 40px -10px rgba(0,0,0,.4)}.toast.on{transform:translate(-50%,0);opacity:1}
+code{background:#eef2f8;padding:3px 8px;border-radius:8px;font-size:13px;word-break:break-all}
+@media(max-width:760px){.auth{grid-template-columns:1fr}.hero{padding:36px 28px}.hero h1{font-size:44px}.form{padding:28px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body>
+<div id="app"></div>
+<script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+<script type="module">
+import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {getAuth,onAuthStateChanged,signInWithEmailAndPassword,createUserWithEmailAndPassword,signOut} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import {getFirestore,collection,doc,getDoc,getDocs,setDoc,addDoc,updateDoc,deleteDoc,query,where,orderBy,limit,runTransaction,serverTimestamp,onSnapshot} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+const app=initializeApp({apiKey:"AIzaSyDGjoK2TE5pmhPP7lMDM1-5Y64wIPuZ3dM",authDomain:"gulf-azs.firebaseapp.com",projectId:"gulf-azs",storageBucket:"gulf-azs.firebasestorage.app",messagingSenderId:"169951292548",appId:"1:169951292548:web:9d7e9b361614c7b8cc66d1"});
+const auth=getAuth(app),db=getFirestore(app),$=s=>document.querySelector(s),root=$("#app");
+const FUELS={ai92:"АИ-92",ai95:"АИ-95",dt:"ДТ"};let stations=[],role=null,tab="";
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const toast=t=>{let e=$(".toast");if(!e){e=document.createElement("div");e.className="toast";document.body.append(e)}e.textContent=t;e.classList.add("on");clearTimeout(e.t);e.t=setTimeout(()=>e.classList.remove("on"),2200)};
+const msg=(id,t,ok)=>{const e=$(id);if(e){e.className=ok?"ok":"err";e.textContent=t}};
+
+/* ---------- вход ---------- */
+function loginView(reg=false){
+ root.innerHTML=`<div class="auth"><div class="hero"><div class="blob b1"></div><div class="blob b2"></div><svg class="logo big" viewBox="0 0 26.486656 24.468509" xmlns="http://www.w3.org/2000/svg"><g transform="translate(17.319526,-167.21923)"><path d="m -4.0762196,167.35196 c -5.074708,-0.0423 -9.3510804,2.97956 -11.1587144,7.44008 -0.321733,0.0734 -1.062214,0.53728 -1.3716,1.20721 -0.735188,1.5561 -0.789163,5.39397 -0.06526,6.78462 0.30727,0.70168 0.985309,1.09432 1.422753,1.26365 1.79952,4.57376 6.0850644,7.55086 11.1728254,7.50746 5.087761,0.0434 9.372953,-2.9337 11.172825,-7.50746 0.437444,-0.16933 1.115483,-0.56197 1.422753,-1.26365 0.723899,-1.39065 0.669924,-5.22852 -0.06491,-6.78462 -0.310091,-0.66993 -1.050219,-1.13383 -1.371952,-1.20721 -1.807634,-4.46052 -6.08400598,-7.48241 -11.158714,-7.44008 m 0,23.58108 c -4.908197,0.0409 -9.0043004,-2.92524 -10.6595334,-7.29262 -0.314325,-0.12524 -0.849136,-0.31962 -1.230489,-0.93381 -0.815975,-1.31798 -0.713317,-5.13679 0,-6.53062 0.390172,-0.64629 0.900642,-0.83749 1.226608,-0.92181 1.666523,-4.3434 5.7717974,-7.32472 10.6634144,-7.2838 4.89161702,-0.0409 8.996891,2.9404 10.663414,7.2838 0.325614,0.0843 0.827616,0.27129 1.213555,0.92604 0.832203,1.38078 0.881592,5.15056 -0.0127,6.47559 -0.381,0.63289 -0.890764,0.80998 -1.204736,0.91899 -1.655586,4.36774 -5.75133598,7.39916 -10.659533,7.35824" fill="#ffffff" fill-rule="evenodd"/><path d="m -4.0747726,190.33427 c -4.747683,0.0399 -8.7347784,-2.90301 -10.2369054,-7.1822 -0.541161,-0.12383 -0.789164,-0.22684 -1.032581,-0.59514 -0.833261,-1.25836 -0.833261,-4.95194 0,-6.2103 0.243417,-0.3683 0.49142,-0.47131 1.032581,-0.59513 1.502127,-4.2792 5.4892224,-7.22172 10.2369054,-7.18221 4.74768302,-0.0395 8.73513,2.90301 10.237258,7.18221 0.540808,0.12382 0.788811,0.22683 1.032581,0.59513 0.833261,1.25836 0.833261,4.9523 0,6.2103 -0.24377,0.3683 -0.491773,0.47131 -1.032581,0.59514 -1.502128,4.27919 -5.48957498,7.22206 -10.237258,7.1822" fill="#ffffff" fill-rule="evenodd"/><path d="m -8.7034286,178.08646 -0.0053,-1.17828 c -6.7920304,-2.95945 -8.0228724,6.75922 -1.5716254,5.23628 l 3.53e-4,0.18839 h 1.9699114 v -3.30412 l -2.8070534,0.007 v 1.11937 l 0.827617,-3.5e-4 v 0.89005 c -3.520016,1.13101 -2.882194,-5.33717 1.5860894,-2.95839" fill="#002876" fill-rule="evenodd"/><path d="m -6.9252526,179.03155 1.850672,0.002 v 1.77589 c -0.06421,0.68544 1.369836,0.68897 1.544814,0.12241 v -1.8983 h 1.858433 v 3.29424 h -1.857022 l 0.0011,-0.25223 c -2.220736,0.65122 -3.294591,0.0907 -3.396544,-0.86607 z" fill="#002876" fill-rule="evenodd"/><path d="M -0.52163058,177.04739 H 1.3763134 v 5.27368 h -1.89794398 z" fill="#002876" fill-rule="evenodd"/><path d="m 6.1769494,178.29968 -0.0095,-0.97367 c -1.712736,-0.65052 -2.9337,-0.60148 -2.977444,0.46073 l 0.0018,1.24636 -0.900289,0.003 -0.0063,1.20791 0.891822,-0.006 -0.0064,2.10467 h 1.882069 l 0.006,-2.13219 0.894292,0.01 v -1.18145 l -0.886178,-0.0123 v -0.70167 c 0.0702,-0.37747 0.603603,-0.25153 1.110192,-0.025" fill="#002876" fill-rule="evenodd"/><path d="m -4.0747726,190.33427 c -4.747683,0.0399 -8.7347784,-2.90301 -10.2369054,-7.1822 -0.541161,-0.12383 -0.789164,-0.22684 -1.032581,-0.59514 -0.833261,-1.25836 -0.833261,-4.95194 0,-6.2103 0.243417,-0.3683 0.49142,-0.47131 1.032581,-0.59513 1.502127,-4.2792 5.4892224,-7.22172 10.2369054,-7.18221 4.74768302,-0.0395 8.73513,2.90301 10.237258,7.18221 0.540808,0.12382 0.788811,0.22683 1.032581,0.59513 0.833261,1.25836 0.833261,4.9523 0,6.2103 -0.24377,0.3683 -0.491773,0.47131 -1.032581,0.59514 -1.502128,4.27919 -5.48957498,7.22206 -10.237258,7.1822 M -15.951742,176.17941 c 0.373591,-0.58843 0.613128,-0.72072 1.220258,-0.94191 1.665111,-4.33846 5.7703864,-7.29545 10.6567114,-7.25452 4.88632502,-0.0409 8.991953,2.91606 10.656711,7.25452 0.60713,0.22119 0.846667,0.35348 1.220258,0.94191 0.868186,1.44322 0.857956,4.98722 0,6.43079 -0.373591,0.60149 -0.613128,0.7366 -1.220258,0.96273 -1.664758,4.43301 -5.77038598,7.39246 -10.656711,7.35083 -4.886325,0.0416 -8.9916004,-2.85609 -10.6567114,-7.28909 -0.60713,-0.22613 -0.908403,-0.42298 -1.281994,-1.02447 -0.74295,-1.31798 -0.695325,-4.95617 0.06174,-6.43079" fill="#002876" fill-rule="evenodd"/><path d="m -4.0822516,169.21636 c 4.24144702,0 7.888816,2.65501 9.402939,6.40574 -6.25651398,-0.8502 -12.5603,-0.84208 -18.8157554,0.025 1.507772,-3.76414 5.1621974,-6.43079 9.4128164,-6.43079 m 9.490428,13.9065 c -1.457325,3.86891 -5.16501998,6.63011 -9.490428,6.63011 -4.334933,0 -8.0493304,-2.77319 -9.4996004,-6.65516 6.3129584,0.88265 12.67565842,0.89112 18.9900284,0.0251" fill="#ff6319" fill-rule="evenodd"/></g></svg><h1>Gulf<i>.</i></h1><p>Панель управления сетью АЗС: цены, сотрудники, касса.</p></div>
+ <div class="form"><h2>${reg?"Создать аккаунт":"Добро пожаловать"}</h2>
+ <label>Email</label><input id="em" autocomplete="username"><label>Пароль</label><input id="pw" type="password" autocomplete="current-password">
+ <div id="m"></div><button class="btn s" style="width:100%" id="go">${reg?"Создать аккаунт":"Войти"}</button>
+ <button class="btn g" style="width:100%;margin-top:10px" id="sw">${reg?"У меня уже есть аккаунт":"Зарегистрироваться"}</button></div></div>`;
+ $("#sw").onclick=()=>loginView(!reg);
+ $("#go").onclick=async()=>{const e=$("#em").value.trim(),p=$("#pw").value;
+  try{if(reg){await createUserWithEmailAndPassword(auth,e,p)}
+   else await signInWithEmailAndPassword(auth,e,p)}catch(x){msg("#m","Не удалось войти: проверьте email и пароль (минимум 6 символов)")}};
+}
+onAuthStateChanged(auth,async u=>{
+ if(!u)return loginView();
+ let s,miss=0;
+ try{s=await getDoc(doc(db,"users",u.uid));
+  if(!s.exists()){await setDoc(doc(db,"users",u.uid),{email:u.email,name:"",phone:"",bonuses:0,discountLevel:0,role:"client",createdAt:serverTimestamp()});s=await getDoc(doc(db,"users",u.uid))}}catch(x){miss=1}
+ role=s&&s.exists()?s.data().role:null;
+ if(!["admin","cashier"].includes(role)){
+  root.innerHTML=`<div class="auth one"><div class="box"><h2>${miss?"Нет связи с базой":"Аккаунт создан, прав пока нет"}</h2>
+  ${miss?"<p>Firestore не отвечает: создайте базу в консоли Firebase и задеплойте <code>firestore.rules</code> (firebase deploy --only firestore:rules).</p>":
+  `<p>Ваш email: <b>${esc(u.email)}</b>, роль: <b>${role||"нет"}</b>.</p><p>Первый администратор назначается вручную: консоль Firebase → Firestore → <b>users</b> → документ <code>${u.uid}</code> → поле <b>role</b> замените на <code>admin</code>. Потом нажмите «Проверить снова».</p>`}
+  <button class="btn" id="re">Проверить снова</button> <button class="btn g" id="lo">Выйти</button></div></div>`;
+  $("#re").onclick=()=>location.reload();$("#lo").onclick=()=>signOut(auth);return}
+ onSnapshot(collection(db,"stations"),sn=>{stations=sn.docs.map(d=>({id:d.id,...d.data()}));if(tab)show(tab,false)});
+ shell(u);
+});
+function shell(u){
+ const tabs=role=="admin"?[["st","АЗС и цены"],["sf","Сотрудники"],["hi","Транзакции"],["ca","Касса"]]:[["ca","Касса"]];
+ root.innerHTML=`<header><b><svg class="logo sm" viewBox="0 0 26.486656 24.468509" xmlns="http://www.w3.org/2000/svg"><g transform="translate(17.319526,-167.21923)"><path d="m -4.0762196,167.35196 c -5.074708,-0.0423 -9.3510804,2.97956 -11.1587144,7.44008 -0.321733,0.0734 -1.062214,0.53728 -1.3716,1.20721 -0.735188,1.5561 -0.789163,5.39397 -0.06526,6.78462 0.30727,0.70168 0.985309,1.09432 1.422753,1.26365 1.79952,4.57376 6.0850644,7.55086 11.1728254,7.50746 5.087761,0.0434 9.372953,-2.9337 11.172825,-7.50746 0.437444,-0.16933 1.115483,-0.56197 1.422753,-1.26365 0.723899,-1.39065 0.669924,-5.22852 -0.06491,-6.78462 -0.310091,-0.66993 -1.050219,-1.13383 -1.371952,-1.20721 -1.807634,-4.46052 -6.08400598,-7.48241 -11.158714,-7.44008 m 0,23.58108 c -4.908197,0.0409 -9.0043004,-2.92524 -10.6595334,-7.29262 -0.314325,-0.12524 -0.849136,-0.31962 -1.230489,-0.93381 -0.815975,-1.31798 -0.713317,-5.13679 0,-6.53062 0.390172,-0.64629 0.900642,-0.83749 1.226608,-0.92181 1.666523,-4.3434 5.7717974,-7.32472 10.6634144,-7.2838 4.89161702,-0.0409 8.996891,2.9404 10.663414,7.2838 0.325614,0.0843 0.827616,0.27129 1.213555,0.92604 0.832203,1.38078 0.881592,5.15056 -0.0127,6.47559 -0.381,0.63289 -0.890764,0.80998 -1.204736,0.91899 -1.655586,4.36774 -5.75133598,7.39916 -10.659533,7.35824" fill="#ffffff" fill-rule="evenodd"/><path d="m -4.0747726,190.33427 c -4.747683,0.0399 -8.7347784,-2.90301 -10.2369054,-7.1822 -0.541161,-0.12383 -0.789164,-0.22684 -1.032581,-0.59514 -0.833261,-1.25836 -0.833261,-4.95194 0,-6.2103 0.243417,-0.3683 0.49142,-0.47131 1.032581,-0.59513 1.502127,-4.2792 5.4892224,-7.22172 10.2369054,-7.18221 4.74768302,-0.0395 8.73513,2.90301 10.237258,7.18221 0.540808,0.12382 0.788811,0.22683 1.032581,0.59513 0.833261,1.25836 0.833261,4.9523 0,6.2103 -0.24377,0.3683 -0.491773,0.47131 -1.032581,0.59514 -1.502128,4.27919 -5.48957498,7.22206 -10.237258,7.1822" fill="#ffffff" fill-rule="evenodd"/><path d="m -8.7034286,178.08646 -0.0053,-1.17828 c -6.7920304,-2.95945 -8.0228724,6.75922 -1.5716254,5.23628 l 3.53e-4,0.18839 h 1.9699114 v -3.30412 l -2.8070534,0.007 v 1.11937 l 0.827617,-3.5e-4 v 0.89005 c -3.520016,1.13101 -2.882194,-5.33717 1.5860894,-2.95839" fill="#002876" fill-rule="evenodd"/><path d="m -6.9252526,179.03155 1.850672,0.002 v 1.77589 c -0.06421,0.68544 1.369836,0.68897 1.544814,0.12241 v -1.8983 h 1.858433 v 3.29424 h -1.857022 l 0.0011,-0.25223 c -2.220736,0.65122 -3.294591,0.0907 -3.396544,-0.86607 z" fill="#002876" fill-rule="evenodd"/><path d="M -0.52163058,177.04739 H 1.3763134 v 5.27368 h -1.89794398 z" fill="#002876" fill-rule="evenodd"/><path d="m 6.1769494,178.29968 -0.0095,-0.97367 c -1.712736,-0.65052 -2.9337,-0.60148 -2.977444,0.46073 l 0.0018,1.24636 -0.900289,0.003 -0.0063,1.20791 0.891822,-0.006 -0.0064,2.10467 h 1.882069 l 0.006,-2.13219 0.894292,0.01 v -1.18145 l -0.886178,-0.0123 v -0.70167 c 0.0702,-0.37747 0.603603,-0.25153 1.110192,-0.025" fill="#002876" fill-rule="evenodd"/><path d="m -4.0747726,190.33427 c -4.747683,0.0399 -8.7347784,-2.90301 -10.2369054,-7.1822 -0.541161,-0.12383 -0.789164,-0.22684 -1.032581,-0.59514 -0.833261,-1.25836 -0.833261,-4.95194 0,-6.2103 0.243417,-0.3683 0.49142,-0.47131 1.032581,-0.59513 1.502127,-4.2792 5.4892224,-7.22172 10.2369054,-7.18221 4.74768302,-0.0395 8.73513,2.90301 10.237258,7.18221 0.540808,0.12382 0.788811,0.22683 1.032581,0.59513 0.833261,1.25836 0.833261,4.9523 0,6.2103 -0.24377,0.3683 -0.491773,0.47131 -1.032581,0.59514 -1.502128,4.27919 -5.48957498,7.22206 -10.237258,7.1822 M -15.951742,176.17941 c 0.373591,-0.58843 0.613128,-0.72072 1.220258,-0.94191 1.665111,-4.33846 5.7703864,-7.29545 10.6567114,-7.25452 4.88632502,-0.0409 8.991953,2.91606 10.656711,7.25452 0.60713,0.22119 0.846667,0.35348 1.220258,0.94191 0.868186,1.44322 0.857956,4.98722 0,6.43079 -0.373591,0.60149 -0.613128,0.7366 -1.220258,0.96273 -1.664758,4.43301 -5.77038598,7.39246 -10.656711,7.35083 -4.886325,0.0416 -8.9916004,-2.85609 -10.6567114,-7.28909 -0.60713,-0.22613 -0.908403,-0.42298 -1.281994,-1.02447 -0.74295,-1.31798 -0.695325,-4.95617 0.06174,-6.43079" fill="#002876" fill-rule="evenodd"/><path d="m -4.0822516,169.21636 c 4.24144702,0 7.888816,2.65501 9.402939,6.40574 -6.25651398,-0.8502 -12.5603,-0.84208 -18.8157554,0.025 1.507772,-3.76414 5.1621974,-6.43079 9.4128164,-6.43079 m 9.490428,13.9065 c -1.457325,3.86891 -5.16501998,6.63011 -9.490428,6.63011 -4.334933,0 -8.0493304,-2.77319 -9.4996004,-6.65516 6.3129584,0.88265 12.67565842,0.89112 18.9900284,0.0251" fill="#ff6319" fill-rule="evenodd"/></g></svg>Gulf<i>.</i></b>${tabs.map(t=>`<button data-t="${t[0]}">${t[1]}</button>`).join("")}<span class="sp"></span><span>${esc(u.email)}</span><button id="lo">Выйти</button></header><main id="v"></main>`;
+ document.querySelectorAll("[data-t]").forEach(b=>b.onclick=()=>show(b.dataset.t));$("#lo").onclick=()=>signOut(auth);show(tabs[0][0]);
+}
+function show(t,a=true){tab=t;if(a){const v=$("#v");v.classList.remove("view");void v.offsetWidth;v.classList.add("view")}document.querySelectorAll("[data-t]").forEach(b=>b.classList.toggle("on",b.dataset.t==t));({st:stationsV,sf:staffV,hi:historyV,ca:cashierV})[t]()}
+
+/* ---------- АЗС и цены ---------- */
+function stationsV(){
+ $("#v").innerHTML=`<div class="card"><h2>Новая АЗС</h2><div class="row"><div><label>Название</label><input id="n"></div><div><label>Адрес</label><input id="a"></div></div>
+ <div class="row">${Object.entries(FUELS).map(([k,v])=>`<div><label>${v}, ₽/л</label><input id="p_${k}" type="number" step="0.01"></div>`).join("")}</div>
+ <div id="m"></div><button class="btn" id="add">Добавить АЗС</button></div>
+ <div class="card"><h2>Цены на АЗС</h2><table><tr><th>АЗС</th>${Object.values(FUELS).map(v=>`<th>${v}</th>`).join("")}<th></th></tr>
+ ${stations.map(s=>`<tr data-id="${s.id}"><td><b>${esc(s.name)}</b><br><small>${esc(s.address)}</small></td>${Object.keys(FUELS).map(k=>`<td><input data-k="${k}" type="number" step="0.01" value="${s.prices?.[k]??""}"></td>`).join("")}<td><button class="btn s sv" style="margin:0">Сохранить</button> <button class="btn g dl" style="margin:0">Удалить</button></td></tr>`).join("")||"<tr><td>Пока нет АЗС</td></tr>"}</table></div>`;
+ const pr=el=>Object.fromEntries([...el.querySelectorAll("[data-k],[id^=p_]")].filter(i=>i.value!=="").map(i=>[i.dataset.k||i.id.slice(2),parseFloat(i.value)]));
+ $("#add").onclick=async()=>{if(!$("#n").value.trim())return msg("#m","Введите название");
+  const prices=Object.fromEntries(Object.keys(FUELS).filter(k=>$("#p_"+k).value!=="").map(k=>[k,parseFloat($("#p_"+k).value)]));
+  await addDoc(collection(db,"stations"),{name:$("#n").value.trim(),address:$("#a").value.trim(),prices,createdAt:serverTimestamp()});toast("АЗС добавлена")};
+ document.querySelectorAll(".sv").forEach(b=>b.onclick=async()=>{const tr=b.closest("tr");await updateDoc(doc(db,"stations",tr.dataset.id),{prices:pr(tr)});toast("Цены сохранены")});
+ document.querySelectorAll(".dl").forEach(b=>b.onclick=()=>confirm("Удалить АЗС?")&&deleteDoc(doc(db,"stations",b.closest("tr").dataset.id)));
+}
+
+/* ---------- сотрудники ---------- */
+async function staffV(){
+ $("#v").innerHTML=`<div class="card"><h2>Назначить роль</h2><p style="color:#5b6b82;margin:0">Сотрудник сначала регистрируется сам (в приложении или на этой странице), затем вы вводите его email.</p>
+ <label>Email сотрудника</label><input id="e"><div class="row"><div><label>Роль</label><select id="r"><option value="cashier">Кассир</option><option value="admin">Администратор</option><option value="client">Обычный клиент</option></select></div>
+ <div><label>АЗС (для кассира)</label><select id="s">${stations.map(s=>`<option value="${s.id}">${esc(s.name)}</option>`).join("")}</select></div></div>
+ <div id="m"></div><button class="btn" id="go">Назначить</button></div><div class="card"><h2>Сотрудники</h2><div id="l">Загрузка…</div></div>`;
+ $("#go").onclick=async()=>{try{const f=await getDocs(query(collection(db,"users"),where("email","==",$("#e").value.trim())));
+  if(f.empty)return msg("#m","Пользователь с таким email не зарегистрирован");
+  const uid=f.docs[0].id,r=$("#r").value;await updateDoc(doc(db,"users",uid),{role:r});
+  if(r=="cashier")await setDoc(doc(db,"staff",uid),{role:r,stationId:$("#s").value,assignedAt:serverTimestamp()});
+  toast("Роль назначена");staffV()}catch(x){msg("#m","Ошибка: "+x.code)}};
+ const all=await getDocs(collection(db,"users"));
+ $("#l").innerHTML="<table>"+all.docs.filter(d=>d.data().role!="client").map(d=>`<tr><td>${esc(d.data().email)}</td><td>${d.data().role=="admin"?"Администратор":"Кассир"}</td></tr>`).join("")+"</table>";
+}
+
+/* ---------- транзакции ---------- */
+async function historyV(){
+ $("#v").innerHTML=`<div class="card"><h2>Последние 50 операций</h2><div id="l">Загрузка…</div></div>`;
+ const s=await getDocs(query(collection(db,"transactions"),orderBy("createdAt","desc"),limit(50)));
+ const st=id=>stations.find(x=>x.id==id)?.name||"—";
+ $("#l").innerHTML=`<table><tr><th>Дата</th><th>АЗС</th><th>Топливо</th><th>Литры</th><th>Итого</th><th>Бонусы</th></tr>`+s.docs.map(d=>{const t=d.data();return`<tr><td>${t.createdAt?.toDate().toLocaleString("ru")||""}</td><td>${esc(st(t.stationId))}</td><td>${FUELS[t.fuelType]||""}</td><td>${t.liters}</td><td>${t.finalPrice} ₽</td><td>+${t.bonusesEarned}</td></tr>`}).join("")+"</table>";
+}
+
+/* ---------- касса ---------- */
+/* Программа лояльности (должна совпадать с приложением, см. Loyalty в MainActivity.kt) */
+const LOYALTY={rate:10,tiers:[{min:5000,pct:5},{min:1000,pct:3},{min:0,pct:0}]};
+const discountFor=b=>LOYALTY.tiers.filter(t=>b>=t.min).sort((a,c)=>c.min-a.min)[0].pct;
+const bonusFor=sum=>Math.floor(sum/LOYALTY.rate);
+function cashierV(){
+ $("#v").innerHTML=`<div class="card"><h2>Оплата по QR</h2><label>АЗС</label><select id="s">${stations.map(s=>`<option value="${s.id}">${esc(s.name)}</option>`).join("")}</select>
+ <div class="row"><div><label>Топливо</label><select id="f">${Object.entries(FUELS).map(([k,v])=>`<option value="${k}">${v}</option>`).join("")}</select></div><div><label>Литры</label><input id="l" type="number" step="0.01"></div></div>
+ <button class="btn g" id="sc">Сканировать QR клиента</button><div id="qr"></div><label>Код сессии (заполнится после сканирования)</label><input id="sid">
+ <div id="m"></div><button class="btn s" id="go">Подтвердить оплату</button><div id="res"></div></div>`;
+ let sc;$("#sc").onclick=async()=>{sc=new Html5Qrcode("qr");try{await sc.start({facingMode:"environment"},{fps:10,qrbox:220},t=>{$("#sid").value=t;sc.stop().then(()=>$("#qr").innerHTML="")})}catch{msg("#m","Нет доступа к камере — вставьте код вручную")}};
+ $("#go").onclick=async()=>{const sid=$("#sid").value.trim(),L=parseFloat($("#l").value),sId=$("#s").value,fuel=$("#f").value;
+  if(!sid||!L||L<=0)return msg("#m","Отсканируйте QR и введите литры");
+  try{const r=await runTransaction(db,async tx=>{
+   const sr=doc(db,"qr_sessions",sid),ss=await tx.get(sr);if(!ss.exists())throw"QR не найден";const se=ss.data();
+   if(se.status!="pending")throw"QR уже использован";if(Date.now()-se.createdAt.toMillis()>18e4)throw"QR истёк — пусть клиент создаст новый";
+   const ur=doc(db,"users",se.userId),u=await tx.get(ur),st=await tx.get(doc(db,"stations",sId));
+   const price=st.data()?.prices?.[fuel];if(price==null)throw"Нет цены на это топливо";
+   const total=Math.round(price*L*100)/100,dp=discountFor(u.data().bonuses||0),da=Math.round(total*dp)/100,fin=Math.round((total-da)*100)/100,b=bonusFor(fin);
+   const tr=doc(collection(db,"transactions"));
+   tx.set(tr,{userId:se.userId,stationId:sId,cashierId:auth.currentUser.uid,fuelType:fuel,liters:L,pricePerLiter:price,totalPrice:total,discountPercent:dp,discountAmount:da,finalPrice:fin,bonusesEarned:b,createdAt:serverTimestamp()});
+   tx.update(ur,{bonuses:(u.data().bonuses||0)+b,lastTxId:tr.id});tx.update(sr,{status:"used",usedAt:serverTimestamp(),transactionId:tr.id});
+   return{name:u.data().name||u.data().email,dp,da,fin,b}});
+   $("#res").innerHTML=`<p class="ok"><b>Оплата подтверждена</b><br>Клиент: ${esc(r.name)}<br>Скидка: ${r.dp}% (−${r.da} ₽)<br>К оплате: <b>${r.fin} ₽</b><br>Начислено бонусов: +${r.b}</p>`;msg("#m","");$("#sid").value="";toast("Оплата подтверждена")}
+  catch(x){msg("#m",typeof x=="string"?x:"Не удалось провести оплату: "+(x.code||x.message))}};
+}
+</script></body></html>
